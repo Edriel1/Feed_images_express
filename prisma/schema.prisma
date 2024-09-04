@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id Int @id @default(autoincrement())
+  email String @unique
+  name String
+  posts post[]
+}
+
+model post {
+  id Int @id @default(autoincrement())
+  title String?
+  content String?
+  author user @relation(fields: [authorIdFk], references: [id], onDelete: Cascade)
+  authorIdFk Int
+  published DateTime @default(now())
+  images image[]
+}
+
+model image {
+  id Int @id @default(autoincrement())
+  url String
+  compose post @relation(fields: [postIdFk], references: [id], onDelete: Cascade)
+  postIdFk Int
+}
