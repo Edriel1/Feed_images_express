@@ -1,5 +1,5 @@
 import multer from 'multer';
-import multerConfig from './config/multerConfig.js';
+import multerConfig from '../config/multerConfig.js';
 
 import Foto from '../models/Foto.js';
 
