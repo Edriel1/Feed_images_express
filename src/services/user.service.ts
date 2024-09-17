@@ -1,8 +1,10 @@
 import Prisma_Service from '../../prisma.service';
-
+import {services} from '../../service';
 import {Prisma} from '@prisma/client';
 
-const prisma = new Prisma_Service()
+const prisma = new Prisma_Service();
+ 
+@services
 export default class User {
     constructor() {};
     
