@@ -12,7 +12,7 @@ export default class Post {
 
     //public async update(where: Prisma.postWhereUniqueInput, data: Prisma.postUpdateInput) {return await prisma.post.update({where, data})};
 
-    public async findPostByID(where: Prisma.postWhereUniqueInput) {return await prisma.post.findUnique({where})};
+    public async findPostByID(where: Prisma.postWhereUniqueInput) {return await prisma.post.findUnique({where, select: {title: true, author: true, content: true, published: true, images: true}})};
 
     public async feedPost(skip: number = 0) {return await prisma.post.findMany({select: {content: true, title: true, images: true, author: true}, take: 10, skip, orderBy:{published: 'desc'}})};
 

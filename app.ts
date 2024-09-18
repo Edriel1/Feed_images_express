@@ -6,7 +6,7 @@ import {resolve} from 'path';
 // import alunoRoutes from './routes/AlunosRoutes.js';
 import userRoutes from './src/routes/User.route';
 // import tokenRoutes from './routes/tokenRoutes.js'
-// import fotoRoutes from './routes/FotoRoutes.js';
+ import postRoutes from './src/routes/post.route';
 
 class App {
   constructor(public app:any = express()) {
@@ -19,14 +19,14 @@ class App {
   middlewares() {
     this.app.use(express.urlencoded({extended: true}));
     this.app.use(express.json());
-    this.app.use(express.static(resolve(__dirname, '..', 'uploads')));
+    this.app.use(express.static(resolve(__dirname, 'uploads')));
   }
 
   route() {
     // this.app.use('/aluno/', alunoRoutes);
      this.app.use('/user/', userRoutes);
     // this.app.use('/tokens/', tokenRoutes);
-    // this.app.use('/fotos/', fotoRoutes);
+     this.app.use('/post/', postRoutes);
   }
 }
 
