@@ -3,12 +3,11 @@ import dotenv from 'dotenv';
 import express from 'express';
 import {resolve} from 'path';
 
-// import alunoRoutes from './routes/AlunosRoutes.js';
 import userRoutes from './src/routes/User.route';
 // import tokenRoutes from './routes/tokenRoutes.js'
  import postRoutes from './src/routes/post.route';
 
-class App {
+class App { //facade
   constructor(public app:any = express()) {
     
     this.middlewares();
@@ -23,7 +22,6 @@ class App {
   }
 
   route() {
-    // this.app.use('/aluno/', alunoRoutes);
      this.app.use('/user/', userRoutes);
     // this.app.use('/tokens/', tokenRoutes);
      this.app.use('/post/', postRoutes);

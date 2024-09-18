@@ -8,7 +8,7 @@ import {resolve} from 'path';
 dotenv.config();
 const imagesService = new imageService();
 const postService = new post_service();
-export default class post {
+export default class post {//Adapter
 
     public async create(req: Request | any, res: Response) {
         try{
